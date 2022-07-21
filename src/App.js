@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
 
 function App() {
+  const [code, setCode] = useState([
+    { id: "0", name: "Sujal", age: "27" },
+    { id: "1", name: "Aniket", age: "17" },
+    { id: "2", name: "Ashok", age: "26" },
+  ]);
+
+  const handleClick = () => {
+    setCode([]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {code.map((item) => {
+        return (
+          <h1 key={item.id}>
+            Name: {item.name} & Age: {item.age}
+          </h1>
+        );
+      })}
+    
+        <button onClick={handleClick}> Click me</button>
+      
     </div>
   );
 }
